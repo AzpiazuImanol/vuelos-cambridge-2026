@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vuelos BUE → Europa | MBA Cambridge 2026</title>
+<title>Vuelos BUE → Londres | MBA Cambridge 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -27,8 +27,6 @@
     line-height: 1.6;
     min-height: 100vh;
   }
-
-  /* HEADER */
   .hero {
     background: linear-gradient(135deg, #0d1117 0%, #161b22 40%, #1a2035 100%);
     border-bottom: 1px solid var(--border);
@@ -90,15 +88,11 @@
     color: var(--text-muted);
   }
   .badge span { color: var(--text); font-weight: 600; }
-
-  /* MAIN CONTAINER */
   .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 24px;
   }
-
-  /* SECTION TITLES */
   .section-title {
     font-size: 11px;
     font-weight: 700;
@@ -116,17 +110,10 @@
     height: 1px;
     background: linear-gradient(90deg, var(--border), transparent);
   }
-  h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  /* ALERT BOX */
   .alert {
     border-radius: 12px;
     padding: 16px 20px;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     display: flex;
     gap: 14px;
     align-items: flex-start;
@@ -135,11 +122,10 @@
   .alert-info { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.25); }
   .alert-warn { background: rgba(255,166,87,0.08); border: 1px solid rgba(255,166,87,0.25); }
   .alert-success { background: rgba(63,185,80,0.08); border: 1px solid rgba(63,185,80,0.25); }
+  .alert-pink { background: rgba(210,168,255,0.08); border: 1px solid rgba(210,168,255,0.3); }
   .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
   .alert-body strong { display: block; font-size: 14px; margin-bottom: 4px; }
   .alert-body p { color: var(--text-muted); }
-
-  /* TIMELINE */
   .timeline {
     display: flex;
     gap: 0;
@@ -150,7 +136,7 @@
   }
   .timeline-step {
     flex: 1;
-    padding: 20px 18px;
+    padding: 20px 14px;
     background: var(--surface);
     border-right: 1px solid var(--border);
     text-align: center;
@@ -158,8 +144,9 @@
   }
   .timeline-step:last-child { border-right: none; }
   .timeline-step.active { background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.3); }
-  .timeline-step .step-date { font-size: 18px; font-weight: 700; color: var(--accent); }
-  .timeline-step .step-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .timeline-step.special { background: rgba(210,168,255,0.06); border-color: rgba(210,168,255,0.25); }
+  .timeline-step .step-date { font-size: 15px; font-weight: 700; color: var(--accent); }
+  .timeline-step .step-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
   .timeline-arrow {
     position: absolute;
     right: -12px;
@@ -177,8 +164,6 @@
     color: var(--text-muted);
     z-index: 10;
   }
-
-  /* AIRLINE CARDS */
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -192,10 +177,7 @@
     overflow: hidden;
     transition: border-color 0.2s, transform 0.2s;
   }
-  .airline-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
+  .airline-card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .airline-card.featured {
     border-color: var(--gold);
     background: linear-gradient(180deg, rgba(241,194,50,0.05) 0%, var(--surface) 30%);
@@ -210,35 +192,15 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .airline-name {
-    font-size: 17px;
-    font-weight: 700;
-  }
-  .airline-code {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-    margin-top: 2px;
-  }
+  .airline-name { font-size: 17px; font-weight: 700; }
+  .airline-code { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
   .featured-badge {
-    background: var(--gold);
-    color: #000;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 6px;
+    background: var(--gold); color: #000; font-size: 10px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
   }
-  .new-badge {
-    background: var(--accent2);
-    color: #000;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 6px;
+  .tag-badge {
+    background: var(--accent2); color: #000; font-size: 10px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
   }
   .card-body { padding: 20px 22px; }
   .route-pill {
@@ -254,9 +216,7 @@
     margin-bottom: 14px;
   }
   .route-pill .arrow { color: var(--text-muted); font-size: 11px; }
-  .route-direct { color: var(--accent2); font-size: 10px; font-weight: 700; margin-left: 4px; }
   .route-stop { color: var(--accent5); font-size: 10px; font-weight: 700; margin-left: 4px; }
-
   .info-row {
     display: flex;
     justify-content: space-between;
@@ -270,9 +230,7 @@
   .info-value { font-weight: 600; text-align: right; }
   .info-value.green { color: var(--accent2); }
   .info-value.blue { color: var(--accent); }
-  .info-value.gold { color: var(--gold); }
   .info-value.orange { color: var(--accent5); }
-
   .price-highlight {
     background: var(--surface2);
     border-radius: 10px;
@@ -282,204 +240,104 @@
     justify-content: space-between;
     align-items: center;
   }
-  .price-main {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--accent);
-  }
+  .price-main { font-size: 22px; font-weight: 800; color: var(--accent); }
   .price-unit { font-size: 12px; color: var(--text-muted); }
   .price-2pax { font-size: 13px; color: var(--text-muted); text-align: right; }
   .price-2pax strong { display: block; font-size: 15px; color: var(--text); }
-
-  .bag-row {
-    display: flex;
-    gap: 8px;
-    margin: 10px 0;
-    flex-wrap: wrap;
-  }
+  .bag-row { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
   .bag-chip {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-weight: 600;
+    display: flex; align-items: center; gap: 5px;
+    font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: 600;
   }
   .bag-included { background: rgba(63,185,80,0.12); border: 1px solid rgba(63,185,80,0.3); color: var(--accent2); }
   .bag-extra { background: rgba(255,166,87,0.1); border: 1px solid rgba(255,166,87,0.3); color: var(--accent5); }
-  .bag-na { background: rgba(139,148,158,0.1); border: 1px solid var(--border); color: var(--text-muted); }
-
-  .schedule-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 6px 0;
-  }
-  .day-chip {
-    background: rgba(88,166,255,0.1);
-    border: 1px solid rgba(88,166,255,0.2);
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 6px;
-  }
-  .day-chip.limited {
-    background: rgba(255,166,87,0.1);
-    border-color: rgba(255,166,87,0.3);
-    color: var(--accent5);
-  }
-
   .cta-btn {
-    display: block;
-    width: 100%;
-    padding: 11px;
-    margin-top: 16px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: opacity 0.2s;
+    display: block; width: 100%; padding: 11px; margin-top: 10px;
+    border-radius: 8px; text-align: center; font-size: 13px; font-weight: 700;
+    text-decoration: none; transition: opacity 0.2s;
   }
   .cta-btn:hover { opacity: 0.85; }
   .cta-primary { background: var(--accent); color: #000; }
   .cta-secondary { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
   .cta-gold { background: var(--gold); color: #000; }
-
-  /* COMPARISON TABLE */
   .table-wrap {
-    overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-bottom: 40px;
+    overflow-x: auto; border-radius: 12px;
+    border: 1px solid var(--border); margin-bottom: 40px;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  thead {
-    background: var(--surface2);
-  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: var(--surface2); }
   th {
-    padding: 12px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
+    padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    border-bottom: 1px solid var(--border); white-space: nowrap;
   }
-  td {
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-    vertical-align: middle;
-  }
+  td { padding: 12px 16px; border-bottom: 1px solid rgba(48,54,61,0.5); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: rgba(88,166,255,0.03); }
   .td-airline { font-weight: 700; }
   .td-check { color: var(--accent2); font-weight: 700; }
-  .td-cross { color: #6e7681; }
   .td-price-best { color: var(--accent2); font-weight: 800; }
-  .td-highlight { background: rgba(241,194,50,0.05); }
-  .td-highlight td { }
-
-  /* COMPARATOR LINKS */
+  .cost-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .cost-option { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .cost-option.winner { border-color: var(--accent2); background: rgba(63,185,80,0.04); }
+  .cost-option.loser { border-color: rgba(255,166,87,0.3); opacity: 0.85; }
   .comparators {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-bottom: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px; margin-bottom: 40px;
   }
   .comp-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 18px 16px;
-    text-decoration: none;
-    transition: border-color 0.2s, transform 0.2s;
-    display: block;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 18px 16px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; display: block;
   }
-  .comp-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .comp-logo {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-  .comp-name {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .comp-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-  }
+  .comp-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .comp-logo { font-size: 22px; margin-bottom: 8px; }
+  .comp-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .comp-desc { font-size: 12px; color: var(--text-muted); }
   .comp-tag {
-    display: inline-block;
-    margin-top: 8px;
-    background: rgba(88,166,255,0.1);
-    border: 1px solid rgba(88,166,255,0.2);
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
+    display: inline-block; margin-top: 8px; background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.2); color: var(--accent);
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px;
   }
-
-  /* TIPS */
   .tips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    margin-bottom: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 40px;
   }
-  .tip-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 20px;
-  }
+  .tip-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
   .tip-icon { font-size: 24px; margin-bottom: 10px; }
   .tip-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
   .tip-body { font-size: 13px; color: var(--text-muted); }
-
-  /* FOOTER */
+  .dates-strip { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+  .date-chip {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(210,168,255,0.08); border: 1px solid rgba(210,168,255,0.25);
+    border-radius: 12px; padding: 12px 18px; flex: 1; min-width: 200px;
+  }
+  .date-chip .emoji { font-size: 22px; }
+  .date-chip .date-info strong { display: block; font-size: 14px; color: var(--accent4); }
+  .date-chip .date-info span { font-size: 12px; color: var(--text-muted); }
   .footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 40px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 12px;
+    border-top: 1px solid var(--border); padding: 30px 40px;
+    text-align: center; color: var(--text-muted); font-size: 12px;
   }
   .footer a { color: var(--accent); text-decoration: none; }
-
-  /* RESPONSIVE */
   @media (max-width: 600px) {
     .hero h1 { font-size: 28px; }
     .timeline { flex-direction: column; }
     .timeline-step { border-right: none; border-bottom: 1px solid var(--border); }
+    .cost-box { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Informe de Vuelos</div>
-  <h1>✈️ Buenos Aires → Europa</h1>
-  <p>Análisis completo de opciones de vuelo para viajar a Madrid o Barcelona rumbo al <strong>MBA en Cambridge</strong></p>
+  <div class="hero-tag">Informe de Vuelos · Actualizado Junio 2026</div>
+  <h1>✈️ Buenos Aires → Londres</h1>
+  <p>Análisis completo de opciones para viajar a <strong>Heathrow o Gatwick</strong> rumbo al MBA en Cambridge 2026 — con fechas especiales en Londres antes del inicio</p>
   <div class="hero-badges">
     <div class="badge">📍 Origen: <span>EZE · Buenos Aires</span></div>
-    <div class="badge">📍 Destino: <span>MAD / BCN</span></div>
-    <div class="badge">📅 Ventana: <span>18–24 Agosto 2026</span></div>
+    <div class="badge">📍 Destino: <span>LHR / LGW · Londres</span></div>
+    <div class="badge">📅 Fecha ideal: <span>~25 Agosto 2026</span></div>
     <div class="badge">👥 Pasajeros: <span>2</span></div>
     <div class="badge">🧳 Equipaje: <span>Mín. 2 valijas</span></div>
   </div>
@@ -487,658 +345,519 @@
 
 <div class="container">
 
-  <!-- TIMELINE -->
   <div class="section-title">Hoja de ruta</div>
   <div class="timeline">
     <div class="timeline-step active">
-      <div class="step-date">18–24 AGO</div>
-      <div class="step-label">✈️ Vuelo EZE → MAD/BCN</div>
+      <div class="step-date">~25 AGO</div>
+      <div class="step-label">✈️ Vuelo EZE → LHR/LGW</div>
+      <div class="timeline-arrow">›</div>
+    </div>
+    <div class="timeline-step special">
+      <div class="step-date">26 AGO–3 SEP</div>
+      <div class="step-label">🇬🇧 Londres<br/>💜 Fechas especiales</div>
       <div class="timeline-arrow">›</div>
     </div>
     <div class="timeline-step">
-      <div class="step-date">AGO–SEP</div>
-      <div class="step-label">🌇 Tiempo en España</div>
+      <div class="step-date">3–5 SEP</div>
+      <div class="step-label">🎓 Cambridge<br/>Instalación</div>
       <div class="timeline-arrow">›</div>
     </div>
     <div class="timeline-step">
       <div class="step-date">~5–9 SEP</div>
-      <div class="step-label">🚆 Traslado a Cambridge</div>
+      <div class="step-label">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia<br/>Viaje MBA cohort</div>
       <div class="timeline-arrow">›</div>
     </div>
     <div class="timeline-step">
       <div class="step-date">10 SEP</div>
-      <div class="step-label">🎓 Inicio MBA Cambridge</div>
+      <div class="step-label">🎓 Inicio<br/>MBA Cambridge</div>
     </div>
   </div>
 
-  <!-- ALERTS -->
-  <div class="alert alert-success">
-    <div class="alert-icon">🆕</div>
-    <div class="alert-body">
-      <strong>Novedad clave: Plus Ultra ya opera BUE–MAD desde mayo 2026</strong>
-      <p>La aerolínea española acaba de inaugurar esta ruta con precios de lanzamiento muy competitivos, vuelo directo y equipaje incluido en todas las tarifas. Es la opción más económica del mercado actualmente.</p>
+  <div class="section-title">Fechas especiales en Londres</div>
+  <div class="dates-strip">
+    <div class="date-chip">
+      <div class="emoji">💜</div>
+      <div class="date-info">
+        <strong>27 de Agosto</strong>
+        <span>Aniversario de mes con Lu — en Londres</span>
+      </div>
+    </div>
+    <div class="date-chip">
+      <div class="emoji">🎂</div>
+      <div class="date-info">
+        <strong>2 de Septiembre</strong>
+        <span>Cumpleaños de Lu — festejar en la ciudad</span>
+      </div>
+    </div>
+    <div class="date-chip">
+      <div class="emoji">🚂</div>
+      <div class="date-info">
+        <strong>3 de Septiembre</strong>
+        <span>Tren a Cambridge · ~1h desde King's Cross</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">¿Por qué el 25 de agosto y no el 20?</div>
+  <div class="cost-box">
+    <div class="cost-option loser">
+      <div style="font-size:13px; font-weight:700; color:var(--accent5); margin-bottom:12px;">❌ Descartado — Viajar el 20 de Agosto</div>
+      <div style="font-size:13px; color:var(--text-muted); line-height:2.2;">
+        <div>✈️ Posible ahorro en pasajes: <span style="color:var(--text);">~USD 50–150 menos p/p</span></div>
+        <div>🏨 5 noches extra en Londres: <span style="color:var(--accent3);">~£150–200/noche = £750–1.000</span></div>
+        <div>🍽️ Gastos extra (comidas, actividades): <span style="color:var(--accent3);">~£300–400</span></div>
+        <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+          Sobrecosto total estimado: <strong style="color:var(--accent3);">~USD 1.300–1.700</strong>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:12px; background:rgba(255,100,100,0.07); border:1px solid rgba(255,100,100,0.2); border-radius:8px; padding:10px; color:var(--text-muted);">
+        El ahorro en pasajes no justifica el costo de 5 días extra de estadía en una de las ciudades más caras del mundo.
+      </div>
+    </div>
+    <div class="cost-option winner">
+      <div style="font-size:13px; font-weight:700; color:var(--accent2); margin-bottom:12px;">✅ Elegido — Viajar el 25 de Agosto</div>
+      <div style="font-size:13px; color:var(--text-muted); line-height:2.2;">
+        <div>✈️ Llegada a Londres: <span style="color:var(--text);">~26 de Agosto</span></div>
+        <div>💜 Aniversario: <span style="color:var(--accent4);">27 de Agosto en Londres ✓</span></div>
+        <div>🎂 Cumpleaños Lu: <span style="color:var(--accent4);">2 de Septiembre en Londres ✓</span></div>
+        <div>⏱️ Tiempo en Londres: <span style="color:var(--text);">~1 semana completa</span></div>
+        <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+          Tiempo suficiente · económicamente óptimo ✓
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:12px; background:rgba(63,185,80,0.07); border:1px solid rgba(63,185,80,0.2); border-radius:8px; padding:10px; color:var(--text-muted);">
+        1 semana en Londres es más que suficiente para las dos fechas especiales, sin pagar estadía innecesaria.
+      </div>
     </div>
   </div>
 
   <div class="alert alert-warn">
     <div class="alert-icon">⚠️</div>
     <div class="alert-body">
-      <strong>Agosto = temporada alta: los precios suben rápido</strong>
-      <p>Agosto es pico de demanda en rutas transatlánticas. Se recomienda comprar lo antes posible. Los precios que aparecen aquí son referenciales; los valores exactos se confirman al momento de reserva.</p>
+      <strong>No existen vuelos directos EZE → Londres</strong>
+      <p>Todos los vuelos Buenos Aires–Londres requieren al menos una escala. Las mejores opciones tienen 1 escala en Europa (Madrid, París, Frankfurt, Ámsterdam) o Brasil (São Paulo). Tiempo total: 17–23 horas incluyendo la conexión.</p>
     </div>
   </div>
 
   <div class="alert alert-info">
-    <div class="alert-icon">💡</div>
+    <div class="alert-icon">🛬</div>
     <div class="alert-body">
-      <strong>Tip logístico: Madrid o Barcelona como puerta de entrada</strong>
-      <p>Desde ambas ciudades hay vuelos directos o de bajo costo a Londres Heathrow/Gatwick. Cambridge está a ~1h desde Londres en tren. Desde MAD y BCN hay múltiples vuelos diarios a LHR, LGW y STN desde ~€40–120.</p>
+      <strong>Heathrow (LHR) vs Gatwick (LGW)</strong>
+      <p><strong>Heathrow (LHR):</strong> mejor conectado — Piccadilly Line 45min (~£6), Heathrow Express 15min (~£25), Elizabeth Line. Más vuelos disponibles desde BUE. <strong>Recomendado.</strong> · <strong>Gatwick (LGW):</strong> más lejos del centro, Gatwick Express 30min. Puede aparecer más barato en buscadores pero es menos conveniente con equipaje de mudanza.</p>
     </div>
   </div>
 
-  <!-- VUELOS DIRECTOS BUE → MAD -->
-  <div class="section-title">Vuelos directos · Buenos Aires → Madrid</div>
+  <div class="section-title">Mejores rutas · EZE → Londres · 1 escala</div>
 
   <div class="cards-grid">
 
-    <!-- PLUS ULTRA -->
     <div class="airline-card featured">
       <div class="card-header">
         <div>
-          <div class="airline-name">Plus Ultra Líneas Aéreas</div>
-          <div class="airline-code">PQ · Airbus A330-200</div>
+          <div class="airline-name">British Airways</div>
+          <div class="airline-code">BA · Oneworld · Boeing 787 / 777</div>
         </div>
-        <div style="display:flex; gap:6px;">
-          <span class="new-badge">NUEVA</span>
-          <span class="featured-badge">⭐ Mejor precio</span>
-        </div>
+        <span class="featured-badge">⭐ Recomendada</span>
       </div>
       <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> MAD <span class="route-direct">● DIRECTO</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Duración</span>
-          <span class="info-value">12–13 hs</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frecuencia en agosto</span>
-          <span class="info-value green">4 vuelos / semana</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Sale de EZE</span>
-          <span class="info-value">12:35 hs</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Sale de MAD</span>
-          <span class="info-value">23:00 hs</span>
-        </div>
+        <div class="route-pill">EZE <span class="arrow">→</span> GRU <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">São Paulo (GRU) · ~2–3 hs</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value">~18–21 hs</span></div>
+        <div class="info-row"><span class="info-label">Frecuencia</span><span class="info-value green">7 vuelos/semana a LHR</span></div>
+        <div class="info-row"><span class="info-label">Terminal llegada</span><span class="info-value blue">Heathrow T5</span></div>
         <div class="price-highlight">
           <div>
-            <div class="price-unit">Precio por persona (ida)</div>
-            <div class="price-main">~USD 470–640</div>
-            <div style="font-size:11px; color: var(--text-muted); margin-top:2px;">Tarifa de lanzamiento</div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
+            <div class="price-main">~USD 700–1.000</div>
           </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~USD 940–1.280</strong>
-          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.400–2.000</strong></div>
         </div>
         <div class="bag-row">
           <div class="bag-chip bag-included">🧳 1 valija 23kg incluida</div>
           <div class="bag-chip bag-included">👜 Carry-on incluido</div>
         </div>
-        <div style="font-size:12px; color:var(--accent5); margin-top:6px;">
-          ⚠️ <strong>Para 2 valijas por persona</strong> verificar tarifa. La 2da valija puede ser +$40–80 por tramo.
+        <div style="font-size:12px; color:var(--accent2); margin-top:8px; padding:10px; background:rgba(63,185,80,0.06); border-radius:8px; border:1px solid rgba(63,185,80,0.2);">
+          ✅ <strong>La aerolínea nacional del destino.</strong> Llega a Heathrow T5, el terminal más moderno. Avios acumulables para futuros vuelos en Europa. Verificar 2da valija en tarifa.
         </div>
-        <div style="font-size:12px; color: var(--text-muted); margin-top:8px; padding: 8px; background: rgba(241,194,50,0.06); border-radius:8px; border: 1px solid rgba(241,194,50,0.2);">
-          💛 <strong>Ventaja única:</strong> Plus Ultra es la única en esta ruta que incluye equipaje en todas las tarifas sin sorpresas. Opción más conveniente para viaje con muchas valijas.
-        </div>
-        <a href="https://www.plusultra.com/vuelos-baratos-buenos-aires-madrid" target="_blank" class="cta-btn cta-gold">Buscar en Plus Ultra →</a>
+        <a href="https://www.britishairways.com/travel/home/public/en_ar" target="_blank" class="cta-btn cta-gold">Buscar en British Airways →</a>
+        <a href="https://www.kayak.com.ar/vuelos/Buenos-Aires-BUE/Londres-Heathrow-LHR/2026-08-25/2pax" target="_blank" class="cta-btn cta-secondary">Comparar en Kayak →</a>
       </div>
     </div>
 
-    <!-- AEROLÍNEAS ARGENTINAS -->
     <div class="airline-card">
       <div class="card-header">
         <div>
-          <div class="airline-name">Aerolíneas Argentinas</div>
-          <div class="airline-code">AR · Boeing 787 Dreamliner</div>
+          <div class="airline-name">Lufthansa</div>
+          <div class="airline-code">LH · Star Alliance · B747 / A380</div>
         </div>
-        <div class="day-chip" style="font-size:11px;">FLAG CARRIER</div>
+        <div class="tag-badge">MEJOR PRECIO</div>
       </div>
       <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> MAD <span class="route-direct">● DIRECTO</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Duración</span>
-          <span class="info-value">~11 hs 55 min</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frecuencia</span>
-          <span class="info-value green">10–11 vuelos / semana</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Clase Economy</span>
-          <span class="info-value">Asientos estándar</span>
-        </div>
+        <div class="route-pill">EZE <span class="arrow">→</span> FRA/MUC <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">Frankfurt o Múnich</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value">~19–23 hs</span></div>
+        <div class="info-row"><span class="info-label">Puntualidad</span><span class="info-value green">Alta — hub eficiente</span></div>
         <div class="price-highlight">
           <div>
-            <div class="price-unit">Precio por persona (ida)</div>
-            <div class="price-main">~USD 800–1.200</div>
-            <div style="font-size:11px; color: var(--text-muted); margin-top:2px;">~ARS 2.2M en pico verano</div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
+            <div class="price-main">~USD 640–950</div>
           </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~USD 1.600–2.400</strong>
-          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.280–1.900</strong></div>
         </div>
         <div class="bag-row">
-          <div class="bag-chip bag-included">🧳 2 valijas 23kg incluidas</div>
+          <div class="bag-chip bag-included">🧳 1 valija 23kg incluida</div>
           <div class="bag-chip bag-included">👜 Carry-on incluido</div>
         </div>
-        <div style="font-size:12px; color:var(--accent2); margin-top:6px;">
-          ✅ <strong>2 valijas incluidas en Economy</strong> — ideal para tu viaje.
+        <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">
+          Suele tener los precios más competitivos del mercado. Alta calidad de servicio y puntualidad.
         </div>
-        <a href="https://www.aerolineas.com.ar" target="_blank" class="cta-btn cta-primary">Buscar en Aerolíneas →</a>
-        <a href="https://www.despegar.com.ar/vuelos/oferta/BUE-MAD-2026-08-18-null/1/0/0/" target="_blank" class="cta-btn cta-secondary">Ver en Despegar →</a>
+        <a href="https://www.lufthansa.com/ar/es/homepage" target="_blank" class="cta-btn cta-primary">Buscar en Lufthansa →</a>
       </div>
     </div>
 
-    <!-- IBERIA -->
     <div class="airline-card">
       <div class="card-header">
         <div>
           <div class="airline-name">Iberia</div>
-          <div class="airline-code">IB · Grupo IAG · A330/A350</div>
+          <div class="airline-code">IB · Grupo IAG · A330 / A350</div>
         </div>
-        <div class="day-chip">MÁS FRECUENTE</div>
+        <div class="tag-badge" style="background:var(--accent); color:#000;">ESCALA MÁS CORTA</div>
       </div>
       <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> MAD <span class="route-direct">● DIRECTO</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Duración</span>
-          <span class="info-value">~11 hs 35 min</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frecuencia</span>
-          <span class="info-value green">21 vuelos / semana</span>
-        </div>
+        <div class="route-pill">EZE <span class="arrow">→</span> MAD <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">Madrid (MAD) · ~1.5–2 hs</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value blue">~16–18 hs (la más corta)</span></div>
+        <div class="info-row"><span class="info-label">Frecuencia</span><span class="info-value green">149 vuelos/sem desde EZE</span></div>
         <div class="price-highlight">
           <div>
-            <div class="price-unit">Precio por persona (ida)</div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
             <div class="price-main">~USD 700–1.100</div>
           </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~USD 1.400–2.200</strong>
-          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.400–2.200</strong></div>
         </div>
         <div class="bag-row">
-          <div class="bag-chip bag-extra">❌ Basic: sin valija facturada</div>
+          <div class="bag-chip bag-extra">❌ Tarifa Basic: sin valija</div>
         </div>
         <div class="bag-row">
           <div class="bag-chip bag-included">✅ Economy: 1 valija 23kg</div>
         </div>
-        <div class="bag-row">
-          <div class="bag-chip bag-included">✅ Economy Plus: 2 valijas</div>
+        <div style="font-size:12px; color:var(--accent5); margin-top:8px;">
+          ⚠️ Elegir <strong>Economy o superior</strong>. La tarifa Basic no incluye equipaje facturado.
         </div>
-        <div style="font-size:12px; color:var(--accent5); margin-top:6px;">
-          ⚠️ Elegir tarifa <strong>Economy o superior</strong> para incluir 2 valijas. La tarifa Basic no incluye equipaje.
-        </div>
-        <a href="https://www.iberia.com/ar/vuelos-baratos/Buenos-Aires-Madrid/" target="_blank" class="cta-btn cta-primary">Buscar en Iberia →</a>
+        <a href="https://www.iberia.com/ar/" target="_blank" class="cta-btn cta-primary">Buscar en Iberia →</a>
       </div>
     </div>
 
-    <!-- AIR EUROPA -->
     <div class="airline-card">
       <div class="card-header">
         <div>
-          <div class="airline-name">Air Europa</div>
-          <div class="airline-code">UX · Boeing 787-9</div>
+          <div class="airline-name">Air France</div>
+          <div class="airline-code">AF · SkyTeam · B777 / A350</div>
         </div>
       </div>
       <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> MAD <span class="route-direct">● DIRECTO</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Duración</span>
-          <span class="info-value">~12 hs 5 min</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frecuencia</span>
-          <span class="info-value green">7 vuelos / semana</span>
-        </div>
+        <div class="route-pill">EZE <span class="arrow">→</span> CDG <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">París Charles de Gaulle</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value">~18–22 hs</span></div>
+        <div class="info-row"><span class="info-label">Precio referencia</span><span class="info-value orange">Desde USD 1.532 I/V</span></div>
         <div class="price-highlight">
           <div>
-            <div class="price-unit">Precio por persona (ida)</div>
-            <div class="price-main">~EUR 650–900</div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
+            <div class="price-main">~USD 700–950</div>
           </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~EUR 1.300–1.800</strong>
-          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.400–1.900</strong></div>
         </div>
         <div class="bag-row">
-          <div class="bag-chip bag-extra">💰 Básico: valija +€60–80/u</div>
+          <div class="bag-chip bag-included">🧳 1 valija 23kg incluida</div>
+          <div class="bag-chip bag-included">👜 Carry-on incluido</div>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">
+          Flota moderna de largo recorrido. Escala en París puede ser cómoda para estirar piernas.
+        </div>
+        <a href="https://wwws.airfrance.com.ar/es-ar/vuelos-desde-buenos-aires-a-londres" target="_blank" class="cta-btn cta-primary">Buscar en Air France →</a>
+      </div>
+    </div>
+
+    <div class="airline-card">
+      <div class="card-header">
+        <div>
+          <div class="airline-name">KLM</div>
+          <div class="airline-code">KL · SkyTeam · B787 / B777</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="route-pill">EZE <span class="arrow">→</span> AMS <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">Ámsterdam Schiphol</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value">~20–23 hs</span></div>
+        <div class="info-row"><span class="info-label">Frecuencia conexión</span><span class="info-value green">67 vuelos/sem</span></div>
+        <div class="price-highlight">
+          <div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
+            <div class="price-main">~USD 700–950</div>
+          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.400–1.900</strong></div>
         </div>
         <div class="bag-row">
-          <div class="bag-chip bag-included">✅ Tarifa Óptima/Confort: incluida</div>
+          <div class="bag-chip bag-included">🧳 1 valija 23kg incluida</div>
         </div>
-        <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
-          Boeing 787 Dreamliner · buena cabin · alianza SkyTeam.
+        <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">
+          Alta frecuencia. Schiphol es un hub cómodo. Codeshare con Air France.
         </div>
-        <a href="https://www.aireuropa.com/en-us/flight-deals-from-buenos-aires-1-to-madrid" target="_blank" class="cta-btn cta-primary">Buscar en Air Europa →</a>
+        <a href="https://www.klm.com/travel/ar_es/apps/ebt/ebt_home.htm" target="_blank" class="cta-btn cta-primary">Buscar en KLM →</a>
+      </div>
+    </div>
+
+    <div class="airline-card">
+      <div class="card-header">
+        <div>
+          <div class="airline-name">LATAM + British Airways</div>
+          <div class="airline-code">LA/BA · Codeshare · B787</div>
+        </div>
+        <div class="tag-badge" style="background:var(--accent4); color:#000;">2 VALIJAS</div>
+      </div>
+      <div class="card-body">
+        <div class="route-pill">EZE <span class="arrow">→</span> GRU <span class="arrow">→</span> LHR <span class="route-stop">● 1 ESCALA</span></div>
+        <div class="info-row"><span class="info-label">Escala</span><span class="info-value">São Paulo Guarulhos</span></div>
+        <div class="info-row"><span class="info-label">Tiempo total</span><span class="info-value">~18–20 hs</span></div>
+        <div class="info-row"><span class="info-label">Desde</span><span class="info-value green">~USD 756 p/p</span></div>
+        <div class="price-highlight">
+          <div>
+            <div class="price-unit">Precio por persona (ida est.)</div>
+            <div class="price-main">~USD 756–1.000</div>
+          </div>
+          <div class="price-2pax"><div>2 pasajeros</div><strong>~USD 1.500–2.000</strong></div>
+        </div>
+        <div class="bag-row">
+          <div class="bag-chip bag-included">🧳🧳 2 valijas 23kg incluidas</div>
+        </div>
+        <div style="font-size:12px; color:var(--accent2); margin-top:8px; padding:10px; background:rgba(63,185,80,0.06); border-radius:8px; border:1px solid rgba(63,185,80,0.2);">
+          ✅ <strong>Mejor opción si van con mucho equipaje.</strong> 2 valijas incluidas por persona — ideal para viaje de mudanza a Cambridge.
+        </div>
+        <a href="https://www.latamairlines.com/ar/es" target="_blank" class="cta-btn cta-primary">Buscar en LATAM →</a>
       </div>
     </div>
 
   </div>
 
-  <!-- VUELOS DIRECTOS BUE → BCN -->
-  <div class="section-title">Vuelo directo · Buenos Aires → Barcelona</div>
-
-  <div class="cards-grid">
-
-    <!-- LEVEL -->
-    <div class="airline-card">
-      <div class="card-header">
-        <div>
-          <div class="airline-name">LEVEL</div>
-          <div class="airline-code">LL · Grupo IAG (lowcost) · A330-200</div>
-        </div>
-        <div class="day-chip">ÚNICO DIRECTO BCN</div>
-      </div>
-      <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> BCN <span class="route-direct">● DIRECTO</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Duración</span>
-          <span class="info-value">~13 hs 20 min</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frecuencia</span>
-          <span class="info-value green">9 vuelos / semana</span>
-        </div>
-        <div class="price-highlight">
-          <div>
-            <div class="price-unit">Precio por persona (ida)</div>
-            <div class="price-main">~USD 600–950</div>
-          </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~USD 1.200–1.900</strong>
-          </div>
-        </div>
-        <div class="bag-row">
-          <div class="bag-chip bag-extra">❌ Light: solo cabina (sin facturar)</div>
-        </div>
-        <div class="bag-row">
-          <div class="bag-chip bag-included">✅ Comfort: 1 valija 23kg</div>
-        </div>
-        <div class="bag-row">
-          <div class="bag-chip bag-extra">💰 2da valija: costo extra ~USD 50–80</div>
-        </div>
-        <div style="font-size:12px; color:var(--accent5); margin-top:6px;">
-          ⚠️ Opción lowcost: precio base bajo pero <strong>sumar equipaje eleva el total</strong>. Con 2 valijas por los 2 pasajeros, calcular +~USD 160–320 extra al precio base.
-        </div>
-        <a href="https://www.flylevel.com/es-ar/vuelos-baratos-de-buenos-aires-1-a-barcelona" target="_blank" class="cta-btn cta-primary">Buscar en LEVEL →</a>
-      </div>
-    </div>
-
-    <!-- IBERIA VIA MAD →BCN -->
-    <div class="airline-card">
-      <div class="card-header">
-        <div>
-          <div class="airline-name">Iberia + vuelo corto a BCN</div>
-          <div class="airline-code">IB + IB/VY — Combinado</div>
-        </div>
-        <div class="day-chip">OPCIÓN FLEXIBLE</div>
-      </div>
-      <div class="card-body">
-        <div class="route-pill">
-          EZE <span class="arrow">→</span> MAD <span class="arrow">→</span> BCN <span class="route-stop">● 1 ESCALA</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">EZE → MAD</span>
-          <span class="info-value">Iberia directo ~11.5hs</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">MAD → BCN</span>
-          <span class="info-value">AVE tren 2.5hs / vuelo 1hs</span>
-        </div>
-        <div class="price-highlight">
-          <div>
-            <div class="price-unit">Estimado total por persona</div>
-            <div class="price-main">~USD 750–1.150</div>
-            <div style="font-size:11px; color:var(--text-muted);">Iberia MAD + AVE ~€50 extra</div>
-          </div>
-          <div class="price-2pax">
-            <div>2 pasajeros</div>
-            <strong>~USD 1.500–2.300</strong>
-          </div>
-        </div>
-        <div style="font-size:12px; color: var(--accent); margin-top:6px; background: rgba(88,166,255,0.07); border-radius:8px; padding:8px; border:1px solid rgba(88,166,255,0.2);">
-          💡 <strong>Estrategia popular:</strong> Llegar a Madrid, pasear 3-5 días, luego AVE a Barcelona (~2.5hs, desde ~€50). Así se disfrutan las dos ciudades.
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- VUELOS CON ESCALA (baratos) -->
-  <div class="section-title">Opciones con escala · Más económicas</div>
-
-  <div class="alert alert-info">
-    <div class="alert-icon">💰</div>
-    <div class="alert-body">
-      <strong>Cuándo tiene sentido una escala</strong>
-      <p>Si la diferencia supera <strong>USD 300–400 por persona</strong> (USD 600–800 para los dos), podría justificarse una escala corta. Tener en cuenta el tiempo total de viaje (generalmente +5–8 horas) y el riesgo de perder conexión con equipaje grande.</p>
-    </div>
-  </div>
-
+  <div class="section-title">Comparativa · EZE → LHR · ~25 Agosto 2026 · 2 pax</div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th>Aerolínea</th>
-          <th>Ruta / Escala</th>
+          <th>Escala</th>
           <th>Tiempo total</th>
-          <th>Precio est. p/p (ida)</th>
-          <th>2 Valijas</th>
-          <th>Notas</th>
+          <th>Frec./sem</th>
+          <th>Precio p/p ida (est.)</th>
+          <th>Total 2 pax</th>
+          <th>Valijas incl.</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="td-airline">LATAM</td>
-          <td>EZE → GRU/SCL → MAD</td>
-          <td>~17–20 hs</td>
-          <td>~USD 600–900</td>
-          <td class="td-check">✅ Incluidas</td>
-          <td>Hub en São Paulo o Santiago</td>
-        </tr>
-        <tr>
-          <td class="td-airline">Air France</td>
-          <td>EZE → CDG → MAD/BCN</td>
-          <td>~18–22 hs</td>
-          <td>~USD 700–950</td>
-          <td class="td-check">✅ Incluidas</td>
-          <td>Hub en París. Buenos asientos</td>
+        <tr style="background:rgba(241,194,50,0.03);">
+          <td class="td-airline" style="color:var(--gold);">⭐ British Airways</td>
+          <td>São Paulo GRU</td>
+          <td>~18–21 hs</td>
+          <td>7x</td>
+          <td>~USD 700–1.000</td>
+          <td>~USD 1.400–2.000</td>
+          <td class="td-check">1 valija ✅</td>
         </tr>
         <tr>
           <td class="td-airline">Lufthansa</td>
-          <td>EZE → FRA/MUC → MAD/BCN</td>
+          <td>Frankfurt / Múnich</td>
           <td>~19–23 hs</td>
-          <td>~USD 640–950</td>
-          <td class="td-check">✅ Incluidas</td>
-          <td>Hub en Frankfurt/Múnich. Puntual</td>
+          <td>diario</td>
+          <td class="td-price-best">~USD 640–950</td>
+          <td class="td-price-best">~USD 1.280–1.900</td>
+          <td class="td-check">1 valija ✅</td>
         </tr>
         <tr>
-          <td class="td-airline">Swiss</td>
-          <td>EZE → ZRH → MAD/BCN</td>
-          <td>~20–24 hs</td>
-          <td>~USD 700–1.000</td>
-          <td class="td-check">✅ Incluidas</td>
-          <td>Hub en Zurich. Alta calidad</td>
+          <td class="td-airline">Air France</td>
+          <td>París CDG</td>
+          <td>~18–22 hs</td>
+          <td>diario</td>
+          <td>~USD 700–950</td>
+          <td>~USD 1.400–1.900</td>
+          <td class="td-check">1 valija ✅</td>
         </tr>
         <tr>
-          <td class="td-airline">Iberia (con escala)</td>
-          <td>EZE → MAD → BCN</td>
-          <td>~14–16 hs</td>
-          <td>~USD 600–900</td>
-          <td class="td-check">✅ Economy</td>
-          <td>Escala en MAD puede ser corta (1–2hs)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- TABLA COMPARATIVA DIRECTO -->
-  <div class="section-title">Comparativa directa · Vuelos sin escala</div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Aerolínea</th>
-          <th>Destino</th>
-          <th>Duración</th>
-          <th>Frecuencia/sem</th>
-          <th>Precio p/p ida (est.)</th>
-          <th>Total 2 pax (est.)</th>
-          <th>2 valijas incl.</th>
-          <th>Reserva</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="td-highlight">
-          <td class="td-airline" style="color:var(--gold);">⭐ Plus Ultra</td>
-          <td>🇪🇸 MAD</td>
-          <td>12–13hs</td>
-          <td>4x</td>
-          <td class="td-price-best">~USD 470–640</td>
-          <td class="td-price-best">~USD 940–1.280</td>
-          <td class="td-check">✅ Verificar 2da</td>
-          <td><a href="https://www.plusultra.com/vuelos-baratos-buenos-aires-madrid" style="color:var(--accent);" target="_blank">plusultra.com</a></td>
+          <td class="td-airline">KLM</td>
+          <td>Ámsterdam AMS</td>
+          <td>~20–23 hs</td>
+          <td>67x</td>
+          <td>~USD 700–950</td>
+          <td>~USD 1.400–1.900</td>
+          <td class="td-check">1 valija ✅</td>
         </tr>
         <tr>
-          <td class="td-airline">Air Europa</td>
-          <td>🇪🇸 MAD</td>
-          <td>12hs</td>
-          <td>7x</td>
-          <td>~EUR 650–900</td>
-          <td>~EUR 1.300–1.800</td>
-          <td class="td-check">✅ Tarifa Óptima</td>
-          <td><a href="https://www.aireuropa.com/en-us/flight-deals-from-buenos-aires-1-to-madrid" style="color:var(--accent);" target="_blank">aireuropa.com</a></td>
+          <td class="td-airline">LATAM + BA</td>
+          <td>São Paulo GRU</td>
+          <td>~18–20 hs</td>
+          <td>diario</td>
+          <td>~USD 756–1.000</td>
+          <td>~USD 1.500–2.000</td>
+          <td class="td-check">2 valijas ✅✅</td>
         </tr>
         <tr>
           <td class="td-airline">Iberia</td>
-          <td>🇪🇸 MAD</td>
-          <td>11.5hs</td>
-          <td>21x</td>
+          <td>Madrid MAD</td>
+          <td>~16–18 hs ⚡</td>
+          <td>149x</td>
           <td>~USD 700–1.100</td>
           <td>~USD 1.400–2.200</td>
-          <td class="td-check">✅ Economy</td>
-          <td><a href="https://www.iberia.com/ar/vuelos-baratos/Buenos-Aires-Madrid/" style="color:var(--accent);" target="_blank">iberia.com</a></td>
-        </tr>
-        <tr>
-          <td class="td-airline">Aerolíneas Arg.</td>
-          <td>🇪🇸 MAD</td>
-          <td>11.5hs</td>
-          <td>10x</td>
-          <td>~USD 800–1.200</td>
-          <td>~USD 1.600–2.400</td>
-          <td class="td-check">✅ 2 valijas std.</td>
-          <td><a href="https://www.aerolineas.com.ar" style="color:var(--accent);" target="_blank">aerolineas.com.ar</a></td>
-        </tr>
-        <tr>
-          <td class="td-airline">LEVEL</td>
-          <td>🇪🇸 BCN</td>
-          <td>13.3hs</td>
-          <td>9x</td>
-          <td>~USD 600–950</td>
-          <td>~USD 1.200–1.900</td>
-          <td class="td-cross">⚠️ Solo Comfort (+costo)</td>
-          <td><a href="https://www.flylevel.com/es-ar/vuelos-baratos-de-buenos-aires-1-a-barcelona" style="color:var(--accent);" target="_blank">flylevel.com</a></td>
+          <td class="td-check">1 valija ✅ (Economy)</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- BUSCADORES -->
-  <div class="section-title">Buscadores para comparar y reservar</div>
-
+  <div class="section-title">Buscadores — EZE → LHR · 25 Agosto · 2 pax</div>
   <div class="comparators">
-    <a href="https://www.google.com/travel/flights/search?tfs=CBwQAhojagcIARIDRVpFEgoyMDI2LTA4LTE4cgwIAxIIL20vMDU2M2g%3D&hl=es" target="_blank" class="comp-card">
+    <a href="https://www.google.com/travel/flights?hl=es" target="_blank" class="comp-card">
       <div class="comp-logo">🔍</div>
       <div class="comp-name">Google Flights</div>
-      <div class="comp-desc">El mejor buscador para ver calendario de precios y alertas de precio.</div>
+      <div class="comp-desc">El mejor buscador. Ver calendario ±3 días del 25 para encontrar el día óptimo.</div>
       <span class="comp-tag">RECOMENDADO</span>
     </a>
-
-    <a href="https://www.kayak.com.ar/vuelos/Buenos-Aires-EZE/Madrid-MAD/2026-08-18/2pax" target="_blank" class="comp-card">
+    <a href="https://www.kayak.com.ar/vuelos/Buenos-Aires-BUE/Londres-Heathrow-LHR/2026-08-25/2pax" target="_blank" class="comp-card">
       <div class="comp-logo">🛩️</div>
       <div class="comp-name">KAYAK</div>
-      <div class="comp-desc">Compara todas las aerolíneas. Buenos filtros de escala, equipaje y alianza.</div>
-      <span class="comp-tag">EZE → MAD · 18 AGO</span>
+      <div class="comp-desc">Filtros por escala, equipaje y alianza. EZE → LHR · 25 Ago · 2 pax ya configurado.</div>
+      <span class="comp-tag">EZE → LHR</span>
     </a>
-
-    <a href="https://www.kayak.com.ar/vuelos/Buenos-Aires-EZE/Barcelona-BCN/2026-08-18/2pax" target="_blank" class="comp-card">
-      <div class="comp-logo">🛩️</div>
-      <div class="comp-name">KAYAK (BCN)</div>
-      <div class="comp-desc">Misma búsqueda directo a Barcelona para comparar con LEVEL.</div>
-      <span class="comp-tag">EZE → BCN · 18 AGO</span>
-    </a>
-
-    <a href="https://www.despegar.com.ar/vuelos/oferta/BUE-MAD-2026-08-18-null/1/0/0/" target="_blank" class="comp-card">
-      <div class="comp-logo">🌎</div>
-      <div class="comp-name">Despegar</div>
-      <div class="comp-desc">Mejor para pagar en cuotas en pesos. Incluye Plus Ultra y Aerolíneas.</div>
-      <span class="comp-tag">EZE → MAD</span>
-    </a>
-
-    <a href="https://www.skyscanner.com.ar/transporte/vuelos/bue/mad/260818/" target="_blank" class="comp-card">
+    <a href="https://www.skyscanner.com.ar/transporte/vuelos/bue/lhr/260825/" target="_blank" class="comp-card">
       <div class="comp-logo">🌤️</div>
       <div class="comp-name">Skyscanner</div>
-      <div class="comp-desc">Vista de calendario mensual muy útil para encontrar el día más barato del rango.</div>
-      <span class="comp-tag">EZE → MAD</span>
+      <div class="comp-desc">Vista de calendario mensual para ver si el 24, 25 o 26 tiene mejor precio.</div>
+      <span class="comp-tag">CALENDARIO</span>
     </a>
-
-    <a href="https://www.plusultra.com/vuelos-baratos-buenos-aires-madrid" target="_blank" class="comp-card" style="border-color: rgba(241,194,50,0.4);">
-      <div class="comp-logo">⭐</div>
-      <div class="comp-name">Plus Ultra</div>
-      <div class="comp-desc">Reserva directa con la aerolínea. Pago en cuotas disponible. Mejor precio garantizado.</div>
-      <span class="comp-tag" style="background:rgba(241,194,50,0.15); border-color:rgba(241,194,50,0.4); color:var(--gold);">DIRECTO</span>
+    <a href="https://www.despegar.com.ar/vuelos/oferta/BUE-LON-2026-08-25-null/1/0/0/" target="_blank" class="comp-card">
+      <div class="comp-logo">🌎</div>
+      <div class="comp-name">Despegar</div>
+      <div class="comp-desc">Mejor para pagar en cuotas en pesos argentinos. Incluye BA, LATAM e Iberia.</div>
+      <span class="comp-tag">CUOTAS ARS</span>
+    </a>
+    <a href="https://www.britishairways.com/travel/home/public/en_ar" target="_blank" class="comp-card" style="border-color: rgba(241,194,50,0.4);">
+      <div class="comp-logo">🇬🇧</div>
+      <div class="comp-name">British Airways</div>
+      <div class="comp-desc">Reserva directa a Heathrow T5. Acumular Avios desde el primer vuelo.</div>
+      <span class="comp-tag" style="background:rgba(241,194,50,0.15); border-color:rgba(241,194,50,0.4); color:var(--gold);">DIRECTO AL DESTINO</span>
+    </a>
+    <a href="https://www.expedia.com/lp/flights/eze/lhr/buenos-aires-to-london" target="_blank" class="comp-card">
+      <div class="comp-logo">✈️</div>
+      <div class="comp-name">Expedia</div>
+      <div class="comp-desc">Vuelos desde ~USD 554. Útil también para comparar paquetes vuelo + hotel en Londres.</div>
+      <span class="comp-tag">DESDE USD 554</span>
     </a>
   </div>
 
-  <!-- RECOMENDACIÓN FINAL -->
   <div class="section-title">Recomendación ejecutiva</div>
-
   <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 40px;">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-
       <div style="background: rgba(241,194,50,0.06); border: 1px solid rgba(241,194,50,0.25); border-radius: 12px; padding: 20px;">
-        <div style="font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🥇 Opción 1 — Mejor precio</div>
-        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Plus Ultra · EZE → MAD</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Directo · 12–13hs · desde ~USD 940 para los dos</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🥇 Opción 1 — Aerolínea del destino</div>
+        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">British Airways · EZE → GRU → LHR</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">1 escala São Paulo · ~18–21hs · ~USD 1.400–2.000 para los dos</div>
         <ul style="font-size: 13px; color: var(--text-muted); padding-left: 16px; line-height: 2;">
-          <li>Aerolínea nueva con precios de lanzamiento</li>
-          <li>Equipaje incluido en todas las tarifas</li>
-          <li>4 frecuencias semanales en agosto</li>
-          <li>Pago a plazos disponible</li>
-          <li>Escala 0 · llegada directa MAD</li>
+          <li>Llega directo a Heathrow T5 — el mejor terminal</li>
+          <li>Aerolínea del país de destino, excelente servicio</li>
+          <li>Avios para futuros vuelos en UK y Europa</li>
+          <li>7 frecuencias/semana desde Buenos Aires</li>
         </ul>
       </div>
-
       <div style="background: rgba(88,166,255,0.06); border: 1px solid rgba(88,166,255,0.25); border-radius: 12px; padding: 20px;">
-        <div style="font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🥈 Opción 2 — Mejor servicio</div>
-        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Iberia · EZE → MAD</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Directo · 11.5hs · desde ~USD 1.400 para los dos</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🥈 Opción 2 — Mejor precio</div>
+        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Lufthansa · EZE → FRA → LHR</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">1 escala Frankfurt · ~19–23hs · ~USD 1.280–1.900 para los dos</div>
         <ul style="font-size: 13px; color: var(--text-muted); padding-left: 16px; line-height: 2;">
-          <li>21 vuelos/semana = máxima flexibilidad de fecha</li>
-          <li>Flota moderna A330/A350</li>
-          <li>Economy incluye 1 valija (Economy Plus: 2)</li>
-          <li>Puntos Iberia Club acumulables</li>
-          <li>Aerolínea consolidada con excelente red en Europa</li>
+          <li>Los precios más competitivos del mercado</li>
+          <li>Alta puntualidad, hub Frankfurt muy eficiente</li>
+          <li>Calidad de servicio reconocida</li>
+          <li>Miembro Star Alliance</li>
         </ul>
       </div>
-
-      <div style="background: rgba(63,185,80,0.06); border: 1px solid rgba(63,185,80,0.25); border-radius: 12px; padding: 20px;">
-        <div style="font-size: 13px; font-weight: 700; color: var(--accent2); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🏡 Opción 3 — Máxima comodidad</div>
-        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Aerolíneas Argentinas · EZE → MAD</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Directo · 11.5hs · desde ~USD 1.600 para los dos</div>
-        <ul style="font-size: 13px; color: var(--text-muted); padding-left: 16px; line-height: 2;">
-          <li><strong>2 valijas 23kg incluidas en Economy</strong></li>
-          <li>Servicio en español desde el check-in</li>
-          <li>Boeing 787 Dreamliner cómodo</li>
-          <li>Venta en pesos con múltiples cuotas</li>
-          <li>Ideal si priorizan confort y sin sorpresas de equipaje</li>
-        </ul>
-      </div>
-
       <div style="background: rgba(210,168,255,0.06); border: 1px solid rgba(210,168,255,0.25); border-radius: 12px; padding: 20px;">
-        <div style="font-size: 13px; font-weight: 700; color: var(--accent4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🌊 Opción 4 — Llegada a BCN directo</div>
-        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">LEVEL · EZE → BCN</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Directo · 13.3hs · desde ~USD 1.200+ (con equipaje)</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">🥉 Opción 3 — Más equipaje incluido</div>
+        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">LATAM + BA · EZE → GRU → LHR</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">1 escala São Paulo · ~18–20hs · ~USD 1.500–2.000 para los dos</div>
         <ul style="font-size: 13px; color: var(--text-muted); padding-left: 16px; line-height: 2;">
-          <li>Única opción directa a Barcelona</li>
-          <li>Lowcost: precio base bajo, sumar equipaje</li>
-          <li>Calcular +USD 160–320 por valijas</li>
-          <li>Buen punto de entrada si quieren empezar por BCN</li>
-          <li>Tarifa Comfort incluye 1 valija por persona</li>
+          <li><strong>2 valijas 23kg incluidas por persona</strong></li>
+          <li>Ideal si van con mucho equipaje de mudanza</li>
+          <li>Llega a Heathrow via codeshare BA</li>
+          <li>Precio competitivo desde ~USD 756 p/p</li>
         </ul>
       </div>
-
+      <div style="background: rgba(63,185,80,0.06); border: 1px solid rgba(63,185,80,0.25); border-radius: 12px; padding: 20px;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent2); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">4️⃣ Opción 4 — Viaje más corto</div>
+        <div style="font-size: 16px; font-weight: 800; margin-bottom: 6px;">Iberia · EZE → MAD → LHR</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">1 escala Madrid · ~16–18hs (la más rápida) · ~USD 1.400–2.200 para los dos</div>
+        <ul style="font-size: 13px; color: var(--text-muted); padding-left: 16px; line-height: 2;">
+          <li>Menor tiempo total de viaje</li>
+          <li>149 frecuencias/sem = máxima flexibilidad</li>
+          <li>Economy incluye 1 valija (evitar tarifa Basic)</li>
+          <li>Escala más corta en Madrid (~1.5–2hs)</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- TIPS -->
-  <div class="section-title">Tips para la compra</div>
-
+  <div class="section-title">Tips · Londres y Cambridge</div>
   <div class="tips-grid">
     <div class="tip-card">
       <div class="tip-icon">⏱️</div>
-      <div class="tip-title">Comprar ya</div>
-      <div class="tip-body">Agosto es pico de demanda. Los precios de Plus Ultra (nuevo y con seats de lanzamiento) van a subir rápido. Comprar con 2–3 meses de anticipación es lo óptimo.</div>
+      <div class="tip-title">Comprar ahora — agosto sube rápido</div>
+      <div class="tip-body">El 25 de agosto es temporada alta. BA y Lufthansa agotan Economy con anticipación. Activar alertas en Google Flights para EZE → LHR alrededor del 25/8 y reservar en cuanto aparezca buen precio.</div>
     </div>
     <div class="tip-card">
-      <div class="tip-icon">📅</div>
-      <div class="tip-title">Flexibilidad de fechas</div>
-      <div class="tip-body">En el rango 18–24 agosto, los miércoles y jueves suelen ser hasta 20–30% más baratos que viernes o domingos. Usar Google Flights o Skyscanner para ver el calendario de precios.</div>
+      <div class="tip-icon">🚇</div>
+      <div class="tip-title">Heathrow → Centro de Londres</div>
+      <div class="tip-body">Piccadilly Line: 45–55 min, ~£6. Heathrow Express: 15 min a Paddington, ~£25. Elizabeth Line: rápida y cómoda, ~£12. Con valijas grandes, el Express vale la pena tras un vuelo de 20hs.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🃏</div>
+      <div class="tip-title">Oyster Card desde el día 1</div>
+      <div class="tip-body">Sacar Oyster al llegar a Heathrow (£5 depósito). Sirve para Tube, buses y trenes locales. Alternativa más fácil: pagar con tarjeta contactless directamente — mismo precio, sin configurar nada.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💜</div>
+      <div class="tip-title">27 Agosto — Aniversario en Londres</div>
+      <div class="tip-body">Reservar restaurante con anticipación — los buenos se llenan semanas antes. Zonas: Covent Garden, South Bank, Notting Hill. Una cena en Borough Market o una experiencia en el Shard son opciones memorables.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎂</div>
+      <div class="tip-title">2 Septiembre — Cumpleaños de Lu</div>
+      <div class="tip-body">Último gran día en Londres. Ideas: Borough Market por la mañana, paseo por el Támesis, cena en Shoreditch o Soho. Considerar espectáculo de West End (reservar con semanas de anticipación).</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚂</div>
+      <div class="tip-title">Londres → Cambridge · 3 de Septiembre</div>
+      <div class="tip-body">Tren desde London King's Cross o Liverpool Street. ~1 hora, desde £10–25 según antelación. Reservar en trainline.com. Con valijas, ir con tiempo — los trenes llenan en hora punta.</div>
     </div>
     <div class="tip-card">
       <div class="tip-icon">🧳</div>
-      <div class="tip-title">Equipaje: leer bien la tarifa</div>
-      <div class="tip-body">Para 2 pasajeros con 2 valijas, verificar siempre el total incluyendo equipaje. En Iberia, la tarifa Basic no incluye nada. En LEVEL, elegir Comfort. En Plus Ultra y Aerolíneas, incluido.</div>
+      <div class="tip-title">Equipaje de mudanza</div>
+      <div class="tip-body">Para Cambridge se necesita bastante. LATAM+BA incluye 2 valijas. Las demás incluyen 1 — la 2da cuesta ~USD 50–80 extra. Evaluar enviar cajas por courier previamente (DHL, Correo Argentino Internacional).</div>
     </div>
     <div class="tip-card">
       <div class="tip-icon">💳</div>
-      <div class="tip-title">Pago en cuotas sin interés</div>
-      <div class="tip-body">Despegar.com.ar suele ofrecer 12–24 cuotas sin interés con tarjetas de banco. Aerolíneas Argentinas también tiene cuotas directas en su sitio. Plus Ultra acepta pagos a plazos.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🔔</div>
-      <div class="tip-title">Alertas de precio</div>
-      <div class="tip-body">Activar alertas en Google Flights para EZE → MAD y EZE → BCN. Si el precio baja, llegará una notificación automática por email.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🚆</div>
-      <div class="tip-title">Conexión Madrid ↔ Barcelona</div>
-      <div class="tip-body">Si llegan a Madrid y quieren terminar en Barcelona (o viceversa), el AVE cuesta ~€50–90 y tarda solo 2.5 horas. Reservar en Renfe.com.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">✈️</div>
-      <div class="tip-title">Vuelo a Cambridge</div>
-      <div class="tip-body">Desde MAD y BCN hay vuelos diarios a Londres Heathrow (LHR) o Gatwick (LGW) con Iberia, Vueling, easyJet desde ~€40–120. Cambridge está a 1 hora de tren desde LHR/KGX.</div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🛡️</div>
-      <div class="tip-title">Seguro de viaje</div>
-      <div class="tip-body">Para un viaje de esta envergadura (mudanza + inicio de MBA), conviene contratar seguro de viaje que cubra cancelación, pérdida de equipaje y asistencia médica.</div>
+      <div class="tip-title">Pago en cuotas en ARS</div>
+      <div class="tip-body">Despegar.com.ar ofrece 12–24 cuotas sin interés con tarjetas bancarias. LATAM también tiene cuotas directas en su sitio. Para BA o Lufthansa, pagar en USD es lo más directo y suele tener mejor precio.</div>
     </div>
   </div>
 
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-  <p>Informe generado el <strong>29 de mayo de 2026</strong> · Los precios son estimaciones de mercado y pueden variar al momento de la compra.</p>
+  <p>Informe actualizado <strong>Junio 2026</strong> · Los precios son estimaciones de mercado y pueden variar al momento de la compra.</p>
   <p style="margin-top:8px;">
     Fuentes:
-    <a href="https://www.plusultra.com" target="_blank">plusultra.com</a> ·
-    <a href="https://www.aerolineas.com.ar" target="_blank">aerolineas.com.ar</a> ·
-    <a href="https://www.iberia.com/ar" target="_blank">iberia.com</a> ·
-    <a href="https://www.aireuropa.com" target="_blank">aireuropa.com</a> ·
-    <a href="https://www.flylevel.com" target="_blank">flylevel.com</a> ·
-    <a href="https://www.kayak.com.ar" target="_blank">kayak.com.ar</a> ·
-    <a href="https://www.ambito.com/negocios/cuanto-cuestan-los-pasajes-plus-ultra-la-ruta-madrid-buenos-aires-n6215994" target="_blank">Ámbito</a> ·
-    <a href="https://www.hosteltur.com/172558_plus-ultra-conectara-madrid-y-buenos-aires-con-dos-frecuencias-semanales.html" target="_blank">Hosteltur</a>
+    <a href="https://www.kayak.com.ar/vuelos/Buenos-Aires-BUE/Londres-Heathrow-LHR" target="_blank">KAYAK</a> ·
+    <a href="https://www.britishairways.com" target="_blank">British Airways</a> ·
+    <a href="https://wwws.airfrance.com.ar/es-ar/vuelos-desde-buenos-aires-a-londres" target="_blank">Air France</a> ·
+    <a href="https://www.flightconnections.com/flights-from-eze-to-lhr" target="_blank">FlightConnections</a> ·
+    <a href="https://www.expedia.com/lp/flights/eze/lhr/buenos-aires-to-london" target="_blank">Expedia</a> ·
+    <a href="https://www.travelocity.com/lp/flight-routes/latam-airlines-group-from-ministro-pistarini-intl-to-heathrow/la/eze/lhr" target="_blank">Travelocity</a>
   </p>
 </div>
 
